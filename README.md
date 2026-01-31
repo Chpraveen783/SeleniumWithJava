@@ -95,6 +95,23 @@ Each test class in the `src` folder demonstrates a specific Selenium use case su
 
 ---
 
+📄 Test Data (YAML)
+All test data is managed using YAML files, making it easy to maintain and update without modifying the test scripts.
+YAML files are located inside src/main/resources/ and typically contain:
+
+User credentials (username, password)
+Form input values
+Expected values for assertions
+URLs and endpoints
+
+Example YAML structure:
+email: "pravch@gmail.com"
+password: "Prav@413"
+productName: "ZARA COAT 3"
+country: "India"
+
+Tip: To add new test data, simply create or update a .yaml file in the resources folder — no code changes needed in your test classes.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
