@@ -1,126 +1,126 @@
-# SeleniumWithJava
+# SeleniumWithJava – Test Automation Framework
 
-A Java-based project for web automation and testing using **Selenium WebDriver**. This repository contains examples and test scripts that demonstrate how to interact with web applications programmatically using Java and Selenium.
+A scalable and maintainable Selenium test automation framework built using Java, TestNG, Maven, and Page Object Model (POM) design pattern. The framework supports YAML-based test data management, Extent Reports for rich test reporting, and follows best practices used in real-world automation projects.
 
----
+## 📌 Key Features
+
+* Page Object Model (POM) for better maintainability and reusability
+* TestNG for test execution, grouping, and parallel runs
+* Extent Reports for detailed HTML test reports
+* YAML files for externalized test data management
+* Maven for build and dependency management
+* Cross-browser execution support
+* GitHub version control for CI/CD readiness
 
 ## 📁 Project Structure
 
 ```
 SeleniumWithJava/
-├── src/                   # Source code (test scripts & utilities)
-├── .idea/                 # IntelliJ IDEA project settings
-├── .gitignore             # Git ignore rules
-└── pom.xml                # Maven project configuration & dependencies
+├── src/
+│   ├── main/
+│   │   └── resources/
+│   │       └── *.yaml                 # Test data files
+│   └── test/
+│       ├── java/
+│       │   ├── base/                  # Base test setup & teardown
+│       │   ├── pages/                 # Page Object classes
+│       │   ├── tests/                 # Test classes
+│       │   └── utils/                 # Utilities (Driver, Config, Reports)
+├── reports/                           # Extent HTML reports
+├── pom.xml                            # Maven dependencies
+├── testng.xml                         # TestNG suite configuration
+└── README.md
 ```
-
----
 
 ## 🛠️ Technologies Used
 
-- **Java** — Programming language
-- **Selenium WebDriver** — Browser automation framework
-- **Maven** — Build and dependency management tool
-- **IntelliJ IDEA** — IDE (recommended)
+* Java
+* Selenium WebDriver
+* TestNG
+* Maven
+* Extent Reports
+* YAML
+* Git & GitHub
 
----
+## ⚙️ Framework Components
 
-## ⚙️ Prerequisites
+### 🔹 Base Layer
 
-Before running this project, make sure you have the following installed:
+* Handles WebDriver initialization
+* Manages browser setup and teardown
+* Loads configuration and test data
 
-1. **Java JDK** (version 8 or above)  
-   → [Download JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
+### 🔹 Page Layer (POM)
 
-2. **Maven**  
-   → [Download Maven](https://maven.apache.org/download.cgi)
+* Each web page is represented as a separate class
+* Web elements and actions are encapsulated
+* Improves test readability and reduces duplication
 
-3. **A web browser** (Chrome / Firefox / Edge)  
-   → Make sure the corresponding **WebDriver** is installed and available in your system PATH.
+### 🔹 Test Layer
 
----
+* Contains TestNG test cases
+* Validations and assertions
+* Test grouping and execution control
 
-## 🚀 Getting Started
+### 🔹 Utilities
 
-### 1. Clone the Repository
+* Driver factory
+* YAML data reader
+* Extent report manager
+* Common reusable methods
 
-```bash
-git clone https://github.com/Chpraveen783/SeleniumWithJava.git
-cd SeleniumWithJava
+## 📊 Reporting (Extent Reports)
+
+* Generates detailed HTML reports after execution
+* Includes:
+   * Test steps
+   * Pass/Fail status
+   * Screenshots on failure
+   * Execution time
+
+Reports are stored in the `reports/` directory.
+
+## 🚀 Execution
+
+Run all tests:
+
 ```
-
-### 2. Open in IDE
-
-Open the project in **IntelliJ IDEA** or any Maven-compatible IDE. Allow it to import the `pom.xml` dependencies automatically.
-
-### 3. Install Dependencies
-
-```bash
-mvn install
-```
-
-### 4. Run Tests
-
-```bash
 mvn test
 ```
 
-Or run individual test classes directly from your IDE.
+Run using TestNG suite:
 
----
+```
+mvn test -DsuiteXmlFile=testng.xml
+```
 
-## 🧪 WebDriver Setup
+## 🤝 Contribution & Version Control
 
-Make sure your browser driver matches your installed browser version:
+* Code managed using GitHub
+* Follows feature-branch workflow
+* Supports CI/CD integration (Jenkins/GitHub Actions)
 
-| Browser | Driver |
-|-----------|--------------------------|
-| Chrome | ChromeDriver |
-| Firefox | GeckoDriver |
-| Edge | EdgeDriver |
+## 🏗️ Framework Architecture Diagram – Description
 
-> **Tip:** Place the driver executable in your system PATH or configure the driver path in your test scripts.
+You can add this below a diagram image (or even without an image):
 
----
+### Framework Architecture Flow
 
-## 📝 Usage
+1. TestNG Test Classes
+   * Trigger test execution
+   * Call respective Page Object methods
+2. Page Object Layer (POM)
+   * Contains locators and page actions
+   * Interacts with WebDriver only via Base classes
+3. Base & Utility Layer
+   * Initializes WebDriver
+   * Reads YAML test data
+   * Handles waits, screenshots, and reporting
+4. WebDriver (Selenium)
+   * Executes browser actions
+   * Communicates with real browsers (Chrome/Firefox/Edge)
+5. Extent Reports
+   * Captures execution results
+   * Generates interactive HTML reports
 
-Each test class in the `src` folder demonstrates a specific Selenium use case such as:
-
-- Launching and navigating browsers
-- Locating web elements (By ID, Name, XPath, CSS Selector, etc.)
-- Filling forms and interacting with dropdowns
-- Handling waits (Implicit & Explicit)
-- Assertions and validations
-
----
-
-📄 Test Data (YAML)
-All test data is managed using YAML files, making it easy to maintain and update without modifying the test scripts.
-YAML files are located inside src/main/resources/ and typically contain:
-
-User credentials (username, password)
-Form input values
-Expected values for assertions
-URLs and endpoints
-
-Example YAML structure:
-email: "pravch@gmail.com"
-password: "Prav@413"
-productName: "ZARA COAT 3"
-country: "India"
-
-Tip: To add new test data, simply create or update a .yaml file in the resources folder — no code changes needed in your test classes.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a new branch (`feature/your-feature`)
-3. Commit your changes
-4. Push and open a **Pull Request**
-
----
-
-> **Author:** [Chpraveen783](https://github.com/Chpraveen783)
+Flow: `TestNG Tests → Page Objects → Selenium WebDriver → Browser → Extent Reports`
