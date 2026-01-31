@@ -1,0 +1,6 @@
+# Test data for E2E order tests
+# Keep sensitive data out of VCS for real projects — this is a hard-coded example per request
+email: "pravch@gmail.com"
+password: "Prav@413"
+productName: "ZARA COAT 3"
+country: "India"
